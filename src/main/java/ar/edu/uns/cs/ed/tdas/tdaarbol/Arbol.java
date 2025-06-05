@@ -6,18 +6,17 @@ import ar.edu.uns.cs.ed.tdas.Position;
 
 public class Arbol<E> implements Tree<E>{
 
+    protected TNodo<E> root;
+    protected int size;
+
     @Override
     public int size() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'size'");
-    puto el que lee
-    
+        return this.size;
     }
 
     @Override
     public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+        return this.size==0;
     }
 
     @Override
@@ -40,20 +39,19 @@ public class Arbol<E> implements Tree<E>{
 
     @Override
     public Position<E> root() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'root'");
+        return this.root;
     }
 
     @Override
     public Position<E> parent(Position<E> v) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'parent'");
+        //TODO BoundryViolationException
+        return checkPosition(v).parent();
     }
 
     @Override
     public Iterable<Position<E>> children(Position<E> v) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'children'");
+        TNodo<E> nodo= checkPosition(v);
+       
     }
 
     @Override
@@ -122,4 +120,9 @@ public class Arbol<E> implements Tree<E>{
         throw new UnsupportedOperationException("Unimplemented method 'removeNode'");
     }
     
+    protected TNodo<E> checkPosition (Position<E> p){
+        //TODO exceptions
+        TNodo<E> toReturn= (TNodo<E>)p;
+        return toReturn;
+    }
 }

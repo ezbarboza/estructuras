@@ -2,16 +2,29 @@ package ar.edu.uns.cs.ed.tdas.tdaarbol;
 
 import ar.edu.uns.cs.ed.tdas.Position;
 import ar.edu.uns.cs.ed.tdas.tdalista.ListaDoblementeEnlazada;
+import ar.edu.uns.cs.ed.tdas.tdalista.PositionList;
 
 public class TNodo<E> implements Position<E> {
 
     protected TNodo<E> dad;
-    protected ListaDoblementeEnlazada<TNodo<E>> sons;
+    protected PositionList<TNodo<E>> sons;
+    protected E element;
+
+    public TNodo (TNodo<E> p, E elem){
+        this.dad=p;
+        this.element=elem;
+        this.sons= new ListaDoblementeEnlazada<TNodo<E>>();
+    }
 
     @Override
     public E element() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'element'");
+        return this.element;
     }
+
+    public TNodo<E> parent(){
+        return this.dad;
+    }
+
+
     
 }
