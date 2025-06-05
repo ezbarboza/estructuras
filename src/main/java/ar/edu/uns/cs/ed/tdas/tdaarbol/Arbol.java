@@ -41,7 +41,7 @@ public class Arbol<E> implements Tree<E>{
     public Position<E> root() {
         return this.root;
     }
-
+j
     @Override
     public Position<E> parent(Position<E> v) {
         //TODO BoundryViolationException
