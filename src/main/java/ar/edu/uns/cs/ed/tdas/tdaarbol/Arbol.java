@@ -10,6 +10,8 @@ public class Arbol<E> implements Tree<E>{
     public int size() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'size'");
+    puto el que lee
+    
     }
 
     @Override
