@@ -21,10 +21,12 @@ public class TNodo<E> implements Position<E> {
         return this.element;
     }
 
-    public TNodo<E> parent(){
+    public TNodo<E> getParent(){
         return this.dad;
     }
 
-
+    public PositionList<TNodo<E>> getChildren(){
+        return sons;
+    }
     
 }
