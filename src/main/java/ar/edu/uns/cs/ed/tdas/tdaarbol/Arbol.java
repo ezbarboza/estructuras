@@ -9,6 +9,10 @@ public class Arbol<E> implements Tree<E>{
     protected TNodo<E> root;
     protected int size;
 
+    public Arbol(){
+        this.root=null;
+        this.size=0;
+    }
     @Override
     public int size() {
         return this.size;
@@ -45,37 +49,38 @@ j
     @Override
     public Position<E> parent(Position<E> v) {
         //TODO BoundryViolationException
-        return checkPosition(v).parent();
+        return checkPosition(v).getParent();
     }
 
     @Override
     public Iterable<Position<E>> children(Position<E> v) {
         TNodo<E> nodo= checkPosition(v);
-       
+        
     }
 
     @Override
     public boolean isInternal(Position<E> v) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isInternal'");
+        return !(isExternal(v));
     }
 
     @Override
     public boolean isExternal(Position<E> v) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isExternal'");
+        TNodo<E> p = checkPosition(v);
+        return p.getChildren().isEmpty();
     }
 
     @Override
     public boolean isRoot(Position<E> v) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isRoot'");
+         TNodo<E> p = checkPosition(v);
+        return p.getParent()==null;
     }
 
     @Override
     public void createRoot(E e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createRoot'");
+        //TODO Exception si ya tiene raiz
+        TNodo<E> raiz = new TNodo<E>(null, e);
+        this.root=raiz;
+        size++;
     }
 
     @Override
