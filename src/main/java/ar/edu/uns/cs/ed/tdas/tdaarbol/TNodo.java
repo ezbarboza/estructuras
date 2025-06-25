@@ -6,14 +6,14 @@ import ar.edu.uns.cs.ed.tdas.tdalista.PositionList;
 
 public class TNodo<E> implements Position<E> {
 
-    protected TNodo<E> dad;
-    protected PositionList<TNodo<E>> sons;
+    protected TNodo<E> parent;
+    protected PositionList<Position<E>> children;
     protected E element;
 
     public TNodo (TNodo<E> p, E elem){
-        this.dad=p;
+        this.parent=p;
         this.element=elem;
-        this.sons= new ListaDoblementeEnlazada<TNodo<E>>();
+        this.children= new ListaDoblementeEnlazada<Position<E>>();
     }
 
     @Override
@@ -21,12 +21,26 @@ public class TNodo<E> implements Position<E> {
         return this.element;
     }
 
-    public TNodo<E> getParent(){
-        return this.dad;
+    public void setElement (E elem){
+        element=elem;
     }
 
-    public PositionList<TNodo<E>> getChildren(){
-        return sons;
+    public TNodo<E> getParent(){
+        return this.parent;
+    }
+
+    public void setParent(TNodo<E> p){
+        parent=p;
+    }
+
+    public PositionList<Position<E>> getChildren(){
+        return this.children;
     }
     
+    
+		public void delete() {
+			element= null;
+			parent= null;
+			children= null;
+		}
 }
